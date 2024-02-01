@@ -173,7 +173,7 @@ public class Control {
 		int i = 1;
 		for(Map.Entry<String, Double> column : list){
 			int index = playerNames.indexOf(column.getKey());
-			output.add(i + "\t" + column.getKey() + "\t" + totalNumberOfGuesses.get(index) + "\t\t" + column.getValue());
+			output.add(i + "\t" + column.getKey() + "\t" + totalNumberOfGuesses.get(index) + "\t\t" + String.format("%.2f", column.getValue()));
 			i++;
 		}
 		
@@ -182,8 +182,6 @@ public class Control {
 		}
 		return output;
 	}
-	
-	
 
 	public boolean isFinished() {
 		for(String color : colors) {
