@@ -72,14 +72,19 @@ public class GamePanel extends JFrame {
 					//won
 					wonGame();
 					System.out.println(name);
-					control.handleVictory(name, control.guesses);
-					control.leaderboardDisplay();
+					if(!name.isEmpty()) {
+						control.handleVictory(name, control.guesses);
+						control.leaderboardDisplay();
+					}
+					
 				} else if(control.guesses == 6){
 					//lost
 					lostGame();
 					control.handleLoss(name);
 				}
 			}
+
+			textField.setText("");
 		}
 	};
 
@@ -334,6 +339,16 @@ public class GamePanel extends JFrame {
 		System.out.println(listModel);
 	}
 
+	public void clearGamePanel() {
+		guess1letter1.setText(placeholder); guess1letter2.setText(placeholder); guess1letter3.setText(placeholder); guess1letter4.setText(placeholder); guess1letter5.setText(placeholder);
+		guess2letter1.setText(placeholder); guess2letter2.setText(placeholder); guess2letter3.setText(placeholder); guess2letter4.setText(placeholder); guess2letter5.setText(placeholder);
+		guess3letter1.setText(placeholder); guess3letter2.setText(placeholder); guess3letter3.setText(placeholder); guess3letter4.setText(placeholder); guess3letter5.setText(placeholder);
+		guess4letter1.setText(placeholder); guess4letter2.setText(placeholder); guess4letter3.setText(placeholder); guess4letter4.setText(placeholder); guess4letter5.setText(placeholder);
+		guess5letter1.setText(placeholder); guess5letter2.setText(placeholder); guess5letter3.setText(placeholder); guess5letter4.setText(placeholder); guess5letter5.setText(placeholder);
+		guess6letter1.setText(placeholder); guess6letter2.setText(placeholder); guess6letter3.setText(placeholder); guess6letter4.setText(placeholder); guess6letter5.setText(placeholder);
+	
+	}
+
 
 	public GamePanel() {
 		setTitle("Infinite Wordle");
@@ -369,8 +384,13 @@ public class GamePanel extends JFrame {
 				c1.show(cards, "gamePanel");
 				
 				control.guesses = 0;
+				isOver = false;
 				control.readWordFile("CS410 Partner Program/src/wordList");
 				control.pickWord(control.words);
+				clearGamePanel();
+				textField.setText("");
+				textArea.setText("");
+				control.usedLetters.clear();
 			}
 		});
 

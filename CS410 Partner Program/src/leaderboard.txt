@@ -1,4 +1,4 @@
 moogi	12	18	1.5
-luke	1	3	3.0
+luke	2	7	3.5
 pogg	5	5	1.0
-hunter	3	3	1.0
+hunter	7	7	1.0
