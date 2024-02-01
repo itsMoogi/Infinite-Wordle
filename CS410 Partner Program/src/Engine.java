@@ -5,9 +5,10 @@ public class Engine {
 		// TODO Auto-generated method stub
 		Control c = new Control();
 		GamePanel gp = new GamePanel();
-		c.readWordFile("src/wordList");
+		
 		gp.setVisible(true);
 		gp.setSize(400, 600);
+		gp.setLocation(500, 200);
 		
 		
 	}
